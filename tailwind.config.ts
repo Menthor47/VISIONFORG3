@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'heading': ['Montserrat', 'sans-serif'],
-				'body': ['Merriweather', 'serif'],
+				'heading': ['JetBrains Mono', 'monospace'],
+				'body': ['IBM Plex Sans', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

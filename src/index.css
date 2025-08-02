@@ -124,13 +124,13 @@
   }
 
   .font-heading {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
     letter-spacing: 0.02em;
   }
 
   .font-body {
-    font-family: 'Merriweather', serif;
+    font-family: 'IBM Plex Sans', sans-serif;
   }
 
   /* Cyberpunk Glass Effects */
