@@ -222,7 +222,7 @@
   /* Focus state */
   .input:focus {
     @apply border-cyan-400 outline-none ring-2 ring-cyan-500/50;
-    box-shadow: 0 0 10px theme('colors.cyan.400/50');
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.5); /* cyan-400 */
   }
 
   /* Invalid state */
@@ -233,7 +233,7 @@
 
   .input[aria-invalid="true"]:focus {
     @apply ring-red-500/50;
-    box-shadow: 0 0 15px theme('colors.red.500/50');
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); /* red-500 */
   }
 
   /* Valid state */
@@ -243,7 +243,7 @@
 
   .input:not([aria-invalid="true"]):not(:placeholder-shown):valid:focus {
     @apply ring-green-500/50;
-    box-shadow: 0 0 15px theme('colors.green.500/50');
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.5); /* green-500 */
   }
 
   /* Error message */
