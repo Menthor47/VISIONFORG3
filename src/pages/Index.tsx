@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ScrollingLink from "@/components/ScrollingLink";
+import { Helmet } from "react-helmet-async";
 import { 
   ArrowRight, 
   Palette, 
@@ -58,6 +59,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>NextLevelDesign - Turning Ideas into Digital Experiences</title>
+        <link rel="canonical" href="https://nextleveldesign.live/" />
+      </Helmet>
+      
       {/* Hero Section */}
       <section 
         className="relative py-20 md:py-32 overflow-hidden"
@@ -69,15 +75,16 @@ const Index = () => {
       >
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="animate-fade-in">
+            <h1 className="sr-only">NextLevelDesign - Turning Ideas into Digital Experiences</h1>
             <Badge variant="outline" className="mb-6 text-sm font-medium glass-card border-primary/30 text-primary">
               <span className="animate-neon-pulse">Digital Agency Excellence</span>
             </Badge>
-            <h1 className="font-heading text-4xl md:text-7xl font-bold text-foreground mb-6 cyber-glitch" data-text="Turning Ideas into Digital Experiences">
+            <div className="font-heading text-4xl md:text-7xl font-bold text-foreground mb-6 cyber-glitch" data-text="Turning Ideas into Digital Experiences">
               Turning Ideas into
               <span className="block text-transparent bg-clip-text gradient-neon animate-gradient-shift neon-glow">
                 Digital Experiences
               </span>
-            </h1>
+            </div>
             <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto mb-8">
               We craft exceptional digital solutions that drive growth, engage audiences, 
               and transform businesses in the modern digital landscape.

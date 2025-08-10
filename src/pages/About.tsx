@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Helmet } from "react-helmet-async";
 import { Users, Target, Lightbulb, Award } from "lucide-react";
 import cyberTeamOffice from "@/assets/cyber-team-office.jpg";
 
@@ -60,13 +61,22 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>About NextLevelDesign | Digital Agency</title>
+        <link rel="canonical" href="https://nextleveldesign.live/about/" />
+      </Helmet>
+      
       {/* Hero Section */}
-      <section className="relative py-20 gradient-cyber overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-background to-muted/20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in neon-glow">
-            About NextLevelDesign
-          </h1>
-          <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto animate-slide-in-left">
+          <h1 className="sr-only">About NextLevelDesign</h1>
+          <Badge variant="outline" className="mb-6 text-sm font-medium glass-card border-primary/30 text-primary">
+            Our Story
+          </Badge>
+          <h2 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-6">
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">NextLevelDesign</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We're a team of passionate designers, developers, and strategists dedicated to creating digital experiences that drive growth and innovation.
           </p>
         </div>

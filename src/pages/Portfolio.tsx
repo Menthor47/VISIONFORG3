@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import ScrollingLink from "@/components/ScrollingLink";
+import { Helmet } from "react-helmet-async";
 import { ExternalLink, Eye } from "lucide-react";
 
 const Portfolio = () => {
@@ -21,7 +22,7 @@ const Portfolio = () => {
       fullDescription: "EcoTech Solutions needed a modern brand identity that would communicate their commitment to sustainable technology. We created a comprehensive brand system including logo design, color palette, typography, and brand guidelines. The project also included a responsive website design that showcases their innovative products and environmental impact.",
       tags: ["Logo Design", "Brand Guidelines", "Website"],
       image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop",
-      results: ["40% increase in brand recognition", "60% more qualified leads", "95% client satisfaction"],
+      results: ["Consistent brand across web and print", "Simple guidelines for the internal team", "Website is easier to navigate and update"],
       url: "#"
     },
     {
@@ -33,7 +34,7 @@ const Portfolio = () => {
       fullDescription: "FinanceFlow required a user-friendly mobile application that would simplify personal finance management. Through extensive user research and iterative design, we created an intuitive interface that makes complex financial data accessible and actionable for everyday users.",
       tags: ["Mobile Design", "User Research", "Prototyping"],
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-      results: ["4.8/5 app store rating", "250k+ downloads in 6 months", "30% reduction in support tickets"],
+      results: ["Clear flows for common tasks", "Improved onboarding experience", "Design supports ongoing feature work"],
       url: "#"
     },
     {
@@ -45,7 +46,7 @@ const Portfolio = () => {
       fullDescription: "Urban Threads needed a modern e-commerce platform that would reflect their contemporary fashion aesthetic while providing a seamless shopping experience. We built a custom Shopify solution with advanced filtering, wishlist functionality, and integrated inventory management.",
       tags: ["E-commerce", "Shopify", "Custom Development"],
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
-      results: ["150% increase in online sales", "45% higher conversion rate", "65% mobile traffic improvement"],
+      results: ["Clean product filtering and search", "Checkout flow with fewer steps", "Content and inventory are easier to manage"],
       url: "#"
     },
     {
@@ -57,7 +58,7 @@ const Portfolio = () => {
       fullDescription: "TechCorp needed a complete website overhaul that would position them as industry leaders. We developed a modern, responsive website with custom animations, integrated blog, career portal, and advanced contact forms. The site was built with performance and SEO optimization in mind.",
       tags: ["React", "CMS", "SEO Optimization"],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      results: ["200% increase in organic traffic", "85% faster page load times", "50% more contact form submissions"],
+      results: ["Faster load times with lighter pages", "Readable content structure", "CMS setup for the internal team"],
       url: "#"
     },
     {
@@ -69,7 +70,7 @@ const Portfolio = () => {
       fullDescription: "Wellness Co. sought to modernize their brand to appeal to a younger, health-conscious demographic. We developed a fresh visual identity, updated their messaging strategy, and created a comprehensive digital presence across web and social media platforms.",
       tags: ["Rebranding", "Social Media", "Content Strategy"],
       image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop",
-      results: ["300% social media engagement increase", "120% website traffic growth", "80% brand recall improvement"],
+      results: ["Updated visual style across channels", "Clearer messaging and tone", "Reusable templates for campaigns"],
       url: "#"
     },
     {
@@ -81,7 +82,7 @@ const Portfolio = () => {
       fullDescription: "RestaurantPro needed a comprehensive dashboard that would give restaurant managers real-time insights into their operations. We designed an intuitive interface that displays key metrics, inventory levels, staff scheduling, and customer feedback in an easy-to-understand format.",
       tags: ["Dashboard Design", "Data Visualization", "Web App"],
       image: "https://images.unsplash.com/photo-1554774853-719586f82d77?w=800&h=600&fit=crop",
-      results: ["35% reduction in management time", "90% user adoption rate", "25% operational efficiency increase"],
+      results: ["Key metrics visible at a glance", "Workflows are easier to follow", "Fits well on laptop and tablet screens"],
       url: "#"
     }
   ];
@@ -92,14 +93,23 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Our Portfolio | NextLevelDesign</title>
+        <link rel="canonical" href="https://nextleveldesign.live/portfolio/" />
+      </Helmet>
+      
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-white neon-glow mb-6 animate-fade-in">
-            Our Portfolio
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto animate-slide-in-left">
-            Explore our latest projects and see how we've helped businesses transform their digital presence.
+      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-background to-muted/20">
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="sr-only">Our Portfolio</h1>
+          <Badge variant="outline" className="mb-6 text-sm font-medium glass-card border-primary/30 text-primary">
+            Our Work
+          </Badge>
+          <h2 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-6">
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Portfolio</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            A showcase of our recent projects and the results we've delivered for our clients.
           </p>
         </div>
       </section>

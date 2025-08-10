@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -61,15 +62,20 @@ const Contact: React.FC = () => {
   if (submitSuccess) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center px-4">
+        <Helmet>
+          <title>Message Sent | Contact Us - NextLevelDesign</title>
+          <link rel="canonical" href="https://nextleveldesign.live/contact/" />
+        </Helmet>
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           className="text-center space-y-6"
         >
+          <h1 className="sr-only">Message Sent Successfully</h1>
           <CheckCircle className="h-20 w-20 text-green-400 mx-auto" />
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+          <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
             Thank You!
-          </h1>
+          </h2>
           <p className="text-gray-300 text-lg max-w-md">
             We've received your request and will get back to you within 24 hours.
           </p>
@@ -86,6 +92,11 @@ const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <Helmet>
+        <title>Contact Us | NextLevelDesign</title>
+        <link rel="canonical" href="https://nextleveldesign.live/contact/" />
+      </Helmet>
+      
       <div className="container mx-auto px-4 py-16">
         {/* Header */}
         <motion.div
@@ -93,9 +104,10 @@ const Contact: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16 space-y-6"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+          <h1 className="sr-only">Contact Us</h1>
+          <div className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
             Let's Transform Your Vision
-          </h1>
+          </div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to elevate your digital presence? Get a free consultation with our experts.
           </p>

@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import ScrollingLink from "@/components/ScrollingLink";
+import { Helmet } from "react-helmet-async";
 import { 
   Palette, 
   Code, 
@@ -23,8 +24,8 @@ const Services = () => {
       id: 1,
       icon: <Palette className="h-12 w-12 text-secondary" />,
       title: "Branding & Identity",
-      description: "Create memorable brand experiences that resonate with your audience and set you apart from competitors.",
-      fullDescription: "Transform your business with a comprehensive brand identity that tells your story and connects with your target audience. Our branding process includes extensive market research, competitor analysis, and strategic positioning to ensure your brand stands out in today's competitive landscape.",
+      description: "Create a clear, consistent brand that’s easy to recognize and use across your channels.",
+      fullDescription: "We help you define how your brand looks and sounds so it’s easy to use across web, print, and social. The result is a practical set of tools you and your team can rely on.",
       features: ["Logo Design", "Brand Guidelines", "Visual Identity", "Brand Strategy"],
       detailedFeatures: [
         "Custom logo design with multiple concepts",
@@ -35,10 +36,10 @@ const Services = () => {
         "Social media brand kit"
       ],
       benefits: [
-        "Increased brand recognition by up to 80%",
-        "Higher customer trust and loyalty",
-        "Professional market presence",
-        "Consistent brand experience across all touchpoints"
+        "Clear, consistent brand across channels",
+        "Professional assets you can reuse",
+        "Guidelines that make future design easier",
+        "Messaging that fits your customers"
       ],
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
       price: "Starting at $2,500",
@@ -48,8 +49,8 @@ const Services = () => {
       id: 2,
       icon: <Code className="h-12 w-12 text-secondary" />,
       title: "Web Development",
-      description: "Build high-performance websites and web applications using modern technologies and best practices.",
-      fullDescription: "Create powerful, scalable web solutions that drive business growth. Our development team uses cutting-edge technologies like React, Next.js, and modern backend frameworks to build fast, secure, and user-friendly websites and applications that perform exceptionally across all devices.",
+      description: "Build dependable websites with clean code, solid performance, and room to grow.",
+      fullDescription: "We focus on reliable, maintainable code and sensible architecture. Your site will be fast, accessible, and straightforward to update.",
       features: ["Custom Development", "E-commerce", "CMS Integration", "API Development"],
       detailedFeatures: [
         "Responsive web design for all devices",
@@ -60,10 +61,10 @@ const Services = () => {
         "Security implementation and SSL"
       ],
       benefits: [
-        "Up to 200% increase in website performance",
-        "Mobile-first responsive design",
-        "SEO-optimized for better search rankings",
-        "Scalable architecture for future growth"
+        "Fast, reliable performance",
+        "Works well on phones and desktops",
+        "Search-friendly basics in place",
+        "Built to grow without rewrites"
       ],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
       price: "Starting at $5,000",
@@ -73,8 +74,8 @@ const Services = () => {
       id: 3,
       icon: <Smartphone className="h-12 w-12 text-secondary" />,
       title: "UX/UI Design",
-      description: "Design intuitive user experiences that convert visitors into customers and drive business growth.",
-      fullDescription: "Create user-centered designs that not only look beautiful but also provide exceptional user experiences. Through extensive user research, wireframing, and prototyping, we design interfaces that are intuitive, accessible, and optimized for conversions.",
+      description: "Design interfaces that are simple to understand and easy to use.",
+      fullDescription: "We use research, wireframes, and prototypes to find simple solutions. The goal is to reduce friction and make tasks clearer for real users.",
       features: ["User Research", "Wireframing", "Prototyping", "Usability Testing"],
       detailedFeatures: [
         "User persona development and journey mapping",
@@ -85,10 +86,10 @@ const Services = () => {
         "Design system creation"
       ],
       benefits: [
-        "Up to 150% improvement in user engagement",
-        "Higher conversion rates and user satisfaction",
-        "Reduced development time with clear specifications",
-        "Future-proof design systems"
+        "Interfaces that are easy to learn",
+        "Fewer friction points in key flows",
+        "Reusable design system components",
+        "Clear handoff for development"
       ],
       image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&h=600&fit=crop",
       price: "Starting at $3,500",
@@ -98,8 +99,8 @@ const Services = () => {
       id: 4,
       icon: <TrendingUp className="h-12 w-12 text-secondary" />,
       title: "Digital Marketing",
-      description: "Grow your online presence with data-driven marketing strategies that deliver measurable results.",
-      fullDescription: "Accelerate your business growth with comprehensive digital marketing strategies. From social media management to PPC campaigns, we create data-driven marketing solutions that increase brand awareness, drive qualified traffic, and generate leads that convert into customers.",
+      description: "Plan and run practical marketing you can measure and improve.",
+      fullDescription: "We focus on steady, sustainable growth using content, paid channels, and analytics. You’ll get clear reporting and small, regular improvements.",
       features: ["Social Media", "Content Marketing", "PPC Campaigns", "Analytics"],
       detailedFeatures: [
         "Social media strategy and management",
@@ -110,10 +111,10 @@ const Services = () => {
         "Analytics and performance reporting"
       ],
       benefits: [
-        "Average 300% increase in qualified leads",
-        "Improved brand visibility and awareness",
-        "Higher ROI on marketing investments",
-        "Data-driven insights for continuous improvement"
+        "Plans based on data you can see",
+        "Clear reporting and next steps",
+        "Sustainable growth over shortcuts",
+        "Adjustments based on what’s working"
       ],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
       price: "Starting at $2,000/month",
@@ -124,38 +125,43 @@ const Services = () => {
   const whyChooseUs = [
     {
       icon: <Clock className="h-8 w-8 text-accent" />,
-      title: "Fast Delivery",
-      description: "We deliver projects on time without compromising quality."
+      title: "Reliable timelines",
+      description: "We set clear milestones and stick to them."
     },
     {
       icon: <Users className="h-8 w-8 text-accent" />,
-      title: "Expert Team",
-      description: "Our team consists of industry experts with proven track records."
+      title: "Small, senior team",
+      description: "You’ll work directly with the people doing the work."
     },
     {
       icon: <Shield className="h-8 w-8 text-accent" />,
-      title: "Quality Guarantee",
-      description: "We stand behind our work with comprehensive quality assurance."
+      title: "Quality you can verify",
+      description: "Reviews, tests, and previews before launch."
     },
     {
       icon: <Award className="h-8 w-8 text-accent" />,
-      title: "Award Winning",
-      description: "Recognized by industry leaders for our innovative solutions."
+      title: "Practical over flashy",
+      description: "We choose what works, not what’s trendy."
     },
     {
       icon: <Zap className="h-8 w-8 text-accent" />,
-      title: "Cutting Edge",
-      description: "We use the latest technologies and industry best practices."
+      title: "Modern, not experimental",
+      description: "We use well-supported tools."
     },
     {
       icon: <Search className="h-8 w-8 text-accent" />,
-      title: "SEO Optimized",
-      description: "All our solutions are built with search engine optimization in mind."
+      title: "Search-friendly by default",
+      description: "Clean markup, performance, and metadata."
     }
   ];
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Our Digital Services | NextLevelDesign</title>
+        <link rel="canonical" href="https://nextleveldesign.live/services/" />
+      </Helmet>
+      
       {/* Hero Section */}
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -178,11 +184,15 @@ const Services = () => {
 
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="animate-fade-in">
-            <h1 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4">
-              Our Services
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-              Comprehensive digital solutions to elevate your brand and drive unprecedented growth in the digital realm.
+            <h1 className="sr-only">Our Digital Services</h1>
+            <Badge variant="outline" className="mb-6 text-sm font-medium glass-card border-primary/30 text-primary">
+              What We Offer
+            </Badge>
+            <h2 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-6">
+              Our Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Services</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Straightforward design and development services to help your business look good, work smoothly, and stay easy to maintain.
             </p>
             <div className="flex gap-4 justify-center">
               <Button variant="cyber" size="lg" asChild>
