@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | NextLevelDesign (Standalone)</title>
+  <meta name="description" content="Standalone contact form for NextLevelDesign. Stored server-side and emailed." />
+  <link rel="icon" href="/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+  <div class="container mx-auto px-4 py-16">
+    <header class="text-center mb-10 space-y-4">
+      <h1 class="sr-only">Contact Us</h1>
+      <div class="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+        Let's Transform Your Vision
+      </div>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Ready to elevate your digital presence? Get a free consultation with our experts.
+      </p>
+    </header>
+
+    <main class="max-w-3xl mx-auto">
+      <section class="bg-slate-800/50 border border-cyan-500/20 rounded-xl p-6 md:p-8 backdrop-blur-sm shadow-lg">
+        <h2 class="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 mb-2">
+          Start Your Project Today
+        </h2>
+        <p class="text-gray-300 mb-6">Tell us about your vision and we'll create a custom strategy.</p>
+
+        <form id="contactForm" class="space-y-6" method="POST" action="/contact-submit.php" novalidate>
+          <input type="hidden" name="_origin" value="standalone" />
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-cyan-400 mb-1">Full Name *</label>
+              <input id="name" name="name" type="text" required placeholder="Your full name"
+                     class="w-full bg-slate-700/50 border border-cyan-500/30 text-white placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+            </div>
+            <div>
+              <label for="email" class="block text-cyan-400 mb-1">Email Address *</label>
+              <input id="email" name="email" type="email" required placeholder="your@email.com"
+                     class="w-full bg-slate-700/50 border border-cyan-500/30 text-white placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="phone" class="block text-cyan-400 mb-1">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+1 (555) 123-4567"
+                     class="w-full bg-slate-700/50 border border-cyan-500/30 text-white placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+            </div>
+            <div>
+              <label for="company" class="block text-cyan-400 mb-1">Company Name *</label>
+              <input id="company" name="company" type="text" required placeholder="Your company name"
+                     class="w-full bg-slate-700/50 border border-cyan-500/30 text-white placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+            </div>
+          </div>
+
+          <div>
+            <label for="projectBudget" class="block text-cyan-400 mb-1">Project Budget *</label>
+            <select id="projectBudget" name="projectBudget" required
+                    class="w-full bg-slate-700/50 border border-cyan-500/30 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+              <option value="" disabled selected>Select budget range</option>
+              <option value="5k-15k">$5k - $15k</option>
+              <option value="15k-30k">$15k - $30k</option>
+              <option value="30k-50k">$30k - $50k</option>
+              <option value="50k+">$50k+</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-cyan-400 mb-1">Project Details *</label>
+            <textarea id="message" name="message" rows="5" required
+                      placeholder="Tell us about your project goals, timeline, and any specific requirements..."
+                      class="w-full bg-slate-700/50 border border-cyan-500/30 text-white placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+          </div>
+
+          <!-- Simple honeypot to deter bots -->
+          <div class="hidden" aria-hidden="true">
+            <label>Leave this field empty
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <!-- Minimal CSRF token: replace value during deploy if your host can inject one -->
+          <input type="hidden" name="csrf" value="nl-design-static-token" />
+
+          <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200">
+            Send Message
+          </button>
+        </form>
+
+        <p class="mt-4 text-sm text-gray-400 text-center">Your message will be securely stored and emailed to our team.</p>
+      </section>
+
+      <section class="mt-6 text-center text-gray-400 text-sm">
+        <p>Prefer direct email? Write us at <a class="text-cyan-400 hover:text-cyan-300" href="mailto:contact@nextleveldesign.art">contact@nextleveldesign.art</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+

@@ -22,6 +22,7 @@ import { Calendar, Phone, Mail, CheckCircle, Star } from 'lucide-react';
 const contactSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   email: z.string().email({ message: 'Please enter a valid email address' }),
+  phone: z.string().optional(),
   company: z.string().min(2, { message: 'Company name is required' }),
   projectBudget: z.string().min(1, { message: 'Please select a budget range' }),
   message: z.string().min(20, { message: 'Please describe your project (min 20 characters)' }),
@@ -38,6 +39,7 @@ const Contact: React.FC = () => {
     defaultValues: {
       name: '',
       email: '',
+      phone: '',
       company: '',
       projectBudget: '',
       message: '',
@@ -47,13 +49,33 @@ const Contact: React.FC = () => {
   const handleSubmit = async (values: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Form submitted:', values);
+      const params = new URLSearchParams();
+      params.append('_origin', 'react');
+      params.append('csrf', 'nl-design-static-token');
+      params.append('website', ''); // honeypot left empty
+      params.append('name', values.name);
+      params.append('email', values.email);
+      params.append('phone', (values as any).phone || '');
+      params.append('company', values.company);
+      params.append('projectBudget', values.projectBudget);
+      params.append('message', values.message);
+
+      const resp = await fetch('/contact-submit.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: params.toString(),
+      });
+
+      if (!resp.ok) {
+        const text = await resp.text().catch(() => '');
+        throw new Error(text || `Submission failed with ${resp.status}`);
+      }
+
       setSubmitSuccess(true);
       form.reset();
     } catch (error) {
       console.error('Submission error:', error);
+      alert('There was a problem sending your message. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -182,23 +204,42 @@ const Contact: React.FC = () => {
                       />
                     </div>
 
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-cyan-400">Company Name *</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Your company name" 
-                              {...field}
-                              className="bg-slate-700/50 border-cyan-500/30 text-white placeholder:text-gray-400"
-                            />
-                          </FormControl>
-                          <FormMessage className="text-red-400" />
-                        </FormItem>
-                      )}
-                    />
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-cyan-400">Phone</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="+1 (555) 123-4567" 
+                                {...field}
+                                className="bg-slate-700/50 border-cyan-500/30 text-white placeholder:text-gray-400"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-red-400" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="company"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-cyan-400">Company Name *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Your company name" 
+                                {...field}
+                                className="bg-slate-700/50 border-cyan-500/30 text-white placeholder:text-gray-400"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-red-400" />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
 
                     <FormField
                       control={form.control}
